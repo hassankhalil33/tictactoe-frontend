@@ -1,6 +1,8 @@
 // Init Variables
 
+const tiles = document.querySelectorAll('.tile');
 const gameDiv = document.querySelector(".game-div");
+const announcer = document.querySelector(".announce");
 
 let board = ['', '', '', '', '', '', '', '', ''];
 let nextMove = "red";
@@ -24,8 +26,30 @@ function updateBoard(i) {
 };
 
 function checkResult() {
-    return
-};
+    let roundWon = false;
+    for (let i = 0; i <= 7; i++) {
+        const winCondition = winningConditions[i];
+        const a = board[winCondition[0]];
+        const b = board[winCondition[1]];
+        const c = board[winCondition[2]];
+        if (a === '' || b === '' || c === '') {
+            continue;
+        }
+        if (a === b && b === c) {
+            roundWon = true;
+            break;
+        };
+    };
+
+    if (roundWon) {
+        announcer.textContent = `Player ${nextMove} Won!`;
+        isGameActive = false;
+        return;
+    }
+
+if (!board.includes(''))
+    announcer.textContent = "TIE!";
+}
 
 function changePlayer() {
     return
@@ -33,8 +57,8 @@ function changePlayer() {
 
 function userAction (tile, index) {
     if(isGameActive) {
-        tile.innerText = currentPlayer;
-        tile.classList.add(`player${currentPlayer}`);
+        tile.innerText = nextMove;
+        tile.classList.add(`player${nextMove}`);
         updateBoard(index);
         checkResult();
         changePlayer();
