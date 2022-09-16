@@ -3,6 +3,16 @@
     padding: 0;
 }
 
+h1 {
+    font-size: 3rem;
+    color: #95E1D3;
+}
+
+h2 {
+    color: #95E1D3;
+    margin: 5% auto;
+}
+
 section {
     background-color: #EAFFD0;
     display: flex;
@@ -16,7 +26,7 @@ section {
     background-color: #F38181;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: column;
     height: 80vh;
     width: 80vw;
@@ -35,4 +45,16 @@ section {
     height: 100px;
     background-color: #FCE38A;
     margin: 5px;
+}
+
+.player-Red {
+    background: url("../images/red.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.player-Yellow {
+    background: url("../images/yellow.png");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
