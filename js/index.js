@@ -1,8 +1,8 @@
 // Init Variables
 
-
 const gameDiv = document.querySelector(".game-div");
 
+let board = ['', '', '', '', '', '', '', '', ''];
 let nextMove = "red";
 let isGameActive = true;
 
@@ -19,12 +19,29 @@ const winningConditions = [
 
 // Functions
 
+function updateBoard(i) {
+    board[i] = nextMove;
+};
+
+function checkResult() {
+    return
+};
+
+function changePlayer() {
+    return
+};
+
 function userAction (tile, index) {
     if(isGameActive) {
         tile.innerText = currentPlayer;
         tile.classList.add(`player${currentPlayer}`);
-    }
-}
+        updateBoard(index);
+        checkResult();
+        changePlayer();
+    };
+};
+
+// Main Script
 
 tiles.forEach( (tile, index) => {
     tile.addEventListener("click", userAction(tile, index));
