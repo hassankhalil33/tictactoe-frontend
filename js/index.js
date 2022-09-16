@@ -43,16 +43,23 @@ function checkResult() {
 
     if (roundWon) {
         announcer.textContent = `Player ${nextMove} Won!`;
+        console.log("Im Here");
         isGameActive = false;
         return;
-    }
+    };
 
 if (!board.includes(''))
     announcer.textContent = "TIE!";
-}
+};
 
 function changePlayer() {
     return
+};
+
+function changePlayer() {
+    announcer.classList.remove(`player${nextMove}`);
+    nextMove = nextMove === "red" ? "yellow" : "red";
+    announcer.innerText = nextMove;
 };
 
 function userAction (tile, index) {
@@ -68,5 +75,5 @@ function userAction (tile, index) {
 // Main Script
 
 tiles.forEach( (tile, index) => {
-    tile.addEventListener("click", userAction(tile, index));
+    tile.addEventListener("click", () => userAction(tile, index));
 });
