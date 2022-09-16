@@ -5,7 +5,7 @@ const gameDiv = document.querySelector(".game-div");
 const announcer = document.querySelector(".announce");
 
 let board = ['', '', '', '', '', '', '', '', ''];
-let nextMove = "red";
+let nextMove = "Red";
 let isGameActive = true;
 
 const winningConditions = [
@@ -42,14 +42,15 @@ function checkResult() {
     };
 
     if (roundWon) {
-        announcer.textContent = `Player ${nextMove} Won!`;
+        changePlayer();
+        announcer.innerText = `Player ${nextMove} Won!`;
         console.log("Im Here");
         isGameActive = false;
         return;
     };
 
 if (!board.includes(''))
-    announcer.textContent = "TIE!";
+    announcer.innerText = "TIE!";
 };
 
 function changePlayer() {
@@ -58,7 +59,7 @@ function changePlayer() {
 
 function changePlayer() {
     announcer.classList.remove(`player${nextMove}`);
-    nextMove = nextMove === "red" ? "yellow" : "red";
+    nextMove = nextMove === "Red" ? "Yellow" : "Red";
     announcer.innerText = nextMove;
 };
 
@@ -67,8 +68,8 @@ function userAction (tile, index) {
         tile.innerText = nextMove;
         tile.classList.add(`player${nextMove}`);
         updateBoard(index);
-        checkResult();
         changePlayer();
+        checkResult();
     };
 };
 
