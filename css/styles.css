@@ -36,3 +36,15 @@ section {
     background-color: #FCE38A;
     margin: 5px;
 }
+
+.player-Red {
+    background: url("../images/red.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.player-Yellow {
+    background: url("../images/yellow.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}

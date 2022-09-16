@@ -1,6 +1,6 @@
 // Init Variables
 
-const tiles = document.querySelectorAll('.tile');
+const tiles = document.querySelectorAll(".tile");
 const gameDiv = document.querySelector(".game-div");
 const announcer = document.querySelector(".announce");
 
@@ -25,6 +25,7 @@ function updateBoard(i) {
     board[i] = nextMove;
 };
 
+//Checks if one of the conditions are met, or ties.
 function checkResult() {
     let roundWon = false;
     for (let i = 0; i <= 7; i++) {
@@ -53,20 +54,17 @@ if (!board.includes(''))
     announcer.innerText = "TIE!";
 };
 
+//Changes player name
 function changePlayer() {
-    return
-};
-
-function changePlayer() {
-    announcer.classList.remove(`player${nextMove}`);
+    announcer.classList.remove(`player-${nextMove}`);
     nextMove = nextMove === "Red" ? "Yellow" : "Red";
     announcer.innerText = nextMove;
 };
 
+//After click action --> start game
 function userAction (tile, index) {
     if(isGameActive) {
-        tile.innerText = nextMove;
-        tile.classList.add(`player${nextMove}`);
+        tile.classList.add(`player-${nextMove}`);
         updateBoard(index);
         changePlayer();
         checkResult();
