@@ -58,7 +58,7 @@ if (!board.includes(''))
 function changePlayer() {
     announcer.classList.remove(`player-${nextMove}`);
     nextMove = nextMove === "Red" ? "Yellow" : "Red";
-    announcer.innerText = nextMove;
+    announcer.innerText = `Player ${nextMove}'s Turn`;
 };
 
 //After click action --> start game
@@ -73,6 +73,8 @@ function userAction (tile, index) {
 
 // Main Script
 
-tiles.forEach( (tile, index) => {
-    tile.addEventListener("click", () => userAction(tile, index));
+window.addEventListener("load", () => {
+    tiles.forEach( (tile, index) => {
+        tile.addEventListener("click", () => userAction(tile, index));
+    });
 });
